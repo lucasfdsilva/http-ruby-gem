@@ -1,7 +1,16 @@
 require "http_lucas/version"
-require "http_lucas/builder"
 
 module HttpLucas
-  class Error < StandardError; end
-  # Your code goes here...
+  class Error < StandardError; 
+  end
+
+  @url = url
+  @params = params
+  @headers = headers
+
+  def get:
+    response = Faraday.get(@url , @params, @headers)
+    return response
+  end
+
 end
